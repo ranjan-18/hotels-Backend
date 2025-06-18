@@ -1,9 +1,9 @@
 const mongoose=require('mongoose');
+require('dotenv').config();
 
+// const mongoURL='mongodb://localhost:27017/hotels'
 
-const mongoURL='mongodb://localhost:27017/hotels'
-
-mongoose.connect(mongoURL,{
+mongoose.connect(process.env.DB_URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
@@ -25,4 +25,4 @@ db.on('disconnected',()=>{
     
 })
 // export db 
-module.export=db;
+module.exports=db;
